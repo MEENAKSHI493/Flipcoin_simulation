@@ -1,9 +1,9 @@
-# flip coin counts two times
 echo "Welcome to Flip Coin Simulation"
 
 i=1
 H=0
 T=0
+
 while [ $i -le 21 ]
 do
 Result=$((RANDOM%2))
@@ -17,13 +17,17 @@ then
     T=$(($T+1))
 fi
 i=$(($i+1))
+X=$(($T-$H))
+Y=$(($H-$T))
 done
 
+echo $X
+echo $Y
 
-if [ $T -gt $H ]
+if [ $X -eq 2 ]
 then
-        echo "Tail wins $T"
-else
-        echo "Heads wins $H"
+        echo "Tail wins by 2 points $T"
+elif [ $Y -eq 2 ]
+then
+        echo "Head wins by 2 points $H"
 fi
-© 2021 GitHub, Inc.
